@@ -1,0 +1,114 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+//    alias(pluginLibs.plugins.hilt.android)
+    id 'com.alibaba.arouter'
+    id 'io.github.wu-555.nav-plugin'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('/Users/wwwu/文档/开发知识/videoapp.jks')
+            storePassword '123456'
+            keyAlias 'key'
+            keyPassword '123456'
+        }
+    }
+    namespace 'com.wutiancheng.videoapp'
+    compileSdk bulidSdk.versions.compileSdk.get().toInteger()
+
+    defaultConfig {
+        applicationId "com.wutiancheng.videoapp"
+        minSdk bulidSdk.versions.minSdk.get().toInteger()
+        targetSdk bulidSdk.versions.targetSdk.get().toInteger()
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // 定义room中schema文件的存储位置
+        javaCompileOptions{
+            annotationProcessorOptions{
+                arguments=["room.schemaLocation":"$projectDir/schemas".toString()]
+            }
+        }
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    viewBinding {
+        enable = true
+    }
+    buildFeatures{
+        compose=true
+    }
+    composeOptions{
+        kotlinCompilerExtensionVersion='1.4.0'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    // compose
+    implementation platform(composeLibs.bom)
+    implementation composeLibs.bundles.compose
+    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation("io.coil-kt:coil-gif:2.4.0")
+    implementation("io.coil-kt:coil-svg:2.4.0")
+
+    // glide
+    kapt androidxLibs.glide.compiler
+    // exoplayer
+    implementation androidxLibs.bundles.exoplayer
+    // retrofit
+    implementation androidxLibs.bundles.http
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+    // androidx
+    implementation androidxLibs.bundles.androidx
+    // qq-open-sdk
+    implementation androidxLibs.qqopensdk
+    // room
+    kapt androidxLibs.room.compiler
+    implementation androidxLibs.bundles.room
+    // camerax
+    implementation androidxLibs.bundles.camerax
+    // photoView
+    implementation androidxLibs.photoView
+    // spring animation
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
+    // 阿里云oss上传sdk
+    implementation 'com.aliyun.dpa:oss-android-sdk:2.9.11'
+    // WorkManager
+    implementation 'androidx.work:work-runtime:2.8.0'
+    implementation project(path: ':nav-plugin-runtime')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

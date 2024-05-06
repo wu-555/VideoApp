@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+    alias(libs.plugins.org.jetbrains.kotlin.jvm)
+    id 'com.gradle.plugin-publish'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies{
+    implementation gradleApi()
+    implementation androidxLibs.bundles.nav.plugin
+    implementation 'com.wutiancheng.videoapp:nav-plugin-runtime:1.0.0'
+}
+
+// The project version will be used as your plugin version when publishing.
+version = '1.2.1'
+group = 'io.github.wu-555'
+
+// Use java-gradle-plugin to generate plugin descriptors and specify both global and individual plugin properties.
+// The names of the blocks inside 'plugins' need to be unique, they will identify the plugins being configured.
+// All properties are mandatory.
+gradlePlugin {
+    website = 'https://github.com/wu-555'
+    vcsUrl = 'https://github.com/jwu-555'
+    plugins {
+        create('navPlugin'){
+            // 插件的名字
+            id='io.github.wu-555.nav-plugin'
+            // 插件发布上去后网站所显示的名字
+            displayName='nav-plugin'
+            // 插件入口类的文件名
+            implementationClass='com.wutiancheng.videoapp.plugin.NavPlugin'
+            description='android jetpack navigation gradle'
+            tags.set(['navigation','transform','gradle7'])
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--    根据视频宽高自适应横纵比，这里的id是固定的exo_content_frame-->
+    <!--    固定了id，StyledPlayerView才知道把内容放到这个view group里面-->
+    <com.google.android.exoplayer2.ui.AspectRatioFrameLayout
+        android:id="@id/exo_content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <!--    video surface将成为这个view group的第一个子view-->
+
+
+    </com.google.android.exoplayer2.ui.AspectRatioFrameLayout>
+
+</merge>

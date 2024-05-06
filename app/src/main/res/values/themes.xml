@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.VideoApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_theme</item>
+        <item name="colorPrimaryVariant">@color/color_theme</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:listDivider">@drawable/list_divider</item>
+    </style>
+
+    <style name="Theme.VideoApp" parent="Base.Theme.VideoApp" />
+
+    <style name="fullScreen" parent="Theme.VideoApp">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="preview" parent="Theme.VideoApp">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/black</item>
+    </style>
+
+</resources>

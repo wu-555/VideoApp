@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    视频填充不满时(高度>宽度&&宽度<屏幕宽度),两边显示高斯模糊-->
+    <ImageView
+        android:id="@+id/blur_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        tools:background="@color/color_theme_10" />
+
+    <!--    视频没播放时的封面-->
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+    <!--    封面上的播放按钮-->
+    <ImageView
+        android:id="@+id/play_btn"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="center"
+        android:src="@drawable/icon_video_play" />
+
+    <!--    缓冲显示-->
+    <ProgressBar
+        android:id="@+id/buffer_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/color_theme"
+        android:visibility="gone" />
+
+    <!--    播放控制器会被动态的添加到后面-->
+</merge>
