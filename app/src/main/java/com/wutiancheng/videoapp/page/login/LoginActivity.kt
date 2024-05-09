@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
         // Tencent类是SDK的主要实现类，开发者可通过Tencent类访问腾讯开放的OpenAPI。
         // 其中APP_ID是分配给第三方应用的appid，类型为String。
         // Context0传入应用程序的全局context，可通过activity的getApplicationContext方法获取
-        tencent = Tencent.createInstance("102104178", applicationContext)
+        tencent = Tencent.createInstance("****key****", applicationContext)
     }
 
 

@@ -76,7 +76,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="tencent102104178" />
+                <data android:scheme="ç" />
             </intent-filter>
         </activity>
         <activity
