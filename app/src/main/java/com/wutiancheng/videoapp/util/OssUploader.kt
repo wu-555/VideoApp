@@ -17,12 +17,11 @@ object OssUploader {
     private const val TAG = "OssUploader"
     private var oss: OSSClient
     private const val ALIYUN_BUCKET_URL =
-        "http://androidvideoapp.oss-cn-chengdu.aliyuncs.com/"
-    private const val BUCKET_NAME = "androidvideoapp"
+        "*****url*****"
+    private const val BUCKET_NAME = "*****name*****"
     private const val END_POINT = "http://oss-cn-chengdu.aliyuncs.com"
-//    private const val AUTH_SERVER_URL = "http://123.56.232.18:7080/"
-    private const val ACCESS_ID="LTAI5tF6pHKmj8oAvuUgTTEt"
-    private const val ACCESS_KEY="y4oe2jPpJYLI9Ts1ZzZQWwFQH2XpiG"
+    private const val ACCESS_ID="*****id*****"
+    private const val ACCESS_KEY="*****key*****"
 
     init {
         //val credentialProvider = OSSAuthCredentialsProvider(AUTH_SERVER_URL)
